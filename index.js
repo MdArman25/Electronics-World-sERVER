@@ -94,6 +94,14 @@ async function run() {
       const result =await MyCollection.findOne(quary)
       res.send(result)
     })
+    app.delete("/AddCart/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const query = { _id: new ObjectId(id) };
+      const result = await MyCollection.deleteOne(query);
+      console.log(result);
+      res.send(result);
+    });
     
     
 
